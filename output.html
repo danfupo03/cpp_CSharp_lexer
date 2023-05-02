@@ -1,1 +1,115 @@
-<html><head><title>Keyword Highlighter</title><style>.keyword{color:red;}</style></head><body><p>This is a test string with <span class="keyword">foo</span>, <span class="keyword">bar</span>, and <span class="keyword">baz</span>.</p></body></html>
+<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre><span class=keyword>using</span> System;
+<span class=keyword>using</span> System.Collections.Generic;
+<span class=keyword>using</span> System.Linq;
+<span class=keyword>using</span> System.Text;
+<span class=keyword>using</span> System.Threading.Tasks;
+
+
+// ESTO ES UN COMENTARIO
+
+/* comentario multilinea
+    Otra <span class=keyword>for</span> mas
+    La ultima ****
+*/
+
+
+    <span class=integerLiteral>1234567890</span>
+    <span class=integerLiteral>1</span>_<span class=integerLiteral>2</span>_<span class=integerLiteral>34</span>
+    _<span class=integerLiteral>12</span>_<span class=integerLiteral>34</span>
+    <span class=integerLiteral>1</span> <span class=integerLiteral>2</span> <span class=integerLiteral>3</span> <span class=integerLiteral>4</span>
+    <span class=integerLiteral>1</span>_<span class=integerLiteral>2</span>_<span class=integerLiteral>3</span>_<span class=integerLiteral>4</span>lU
+    <span class=integerLiteral>123</span>l
+    <span class=integerLiteral>123</span>Lu
+    <span class=integerLiteral>123</span>u
+    <span class=integerLiteral>123</span>Ul
+    <span class=integerLiteral>123</span>.<span class=integerLiteral>456</span>
+
+    <span class=integerLiteral>0</span>x<span class=integerLiteral>1234567890</span>AbcDEf
+    <span class=integerLiteral>0</span>x<span class=integerLiteral>1</span>_<span class=integerLiteral>2</span>_<span class=integerLiteral>34</span>
+    <span class=integerLiteral>0</span>x_<span class=integerLiteral>12</span>_<span class=integerLiteral>34</span>
+
+    <span class=integerLiteral>0</span>xFFu
+    <span class=integerLiteral>0</span>xFFUl
+    <span class=integerLiteral>0</span>xFFl
+    <span class=integerLiteral>0</span>xFFLu
+
+    <span class=integerLiteral>0</span>b<span class=integerLiteral>1010101010101010101010101010101010101010101010101010101010101010</span>
+    <span class=integerLiteral>0</span>
+    <span class=integerLiteral>0</span>b
+    <span class=integerLiteral>0</span>b_
+    <span class=integerLiteral>0</span>b_<span class=integerLiteral>1</span>
+    <span class=integerLiteral>0</span>b<span class=integerLiteral>1</span>_
+    <span class=integerLiteral>0</span>b<span class=integerLiteral>1</span>_<span class=integerLiteral>0</span>
+    <span class=integerLiteral>0</span>
+    <span class=integerLiteral>0</span>B
+    <span class=integerLiteral>0</span>B_
+
+
+    <span class=integerLiteral>1</span>.<span class=integerLiteral>1</span> <span class=integerLiteral>2</span>.<span class=integerLiteral>2</span> <span class=integerLiteral>3</span>.<span class=integerLiteral>3</span>
+    <span class=integerLiteral>1</span>.<span class=integerLiteral>234</span>_<span class=integerLiteral>567</span>      // <span class=keyword>double</span>
+    .<span class=integerLiteral>3</span>e<span class=integerLiteral>5</span>f          // <span class=keyword>float</span>
+    <span class=integerLiteral>2</span>_<span class=integerLiteral>345</span>E-<span class=integerLiteral>2</span>_<span class=integerLiteral>0</span>     // <span class=keyword>double</span>
+    <span class=integerLiteral>15</span>D            // <span class=keyword>double</span>
+    <span class=integerLiteral>19</span>.<span class=integerLiteral>73</span>M         // <span class=keyword>decimal</span>
+    <span class=integerLiteral>1</span>.F            // parsed <span class=keyword>as</span> a member access of F due to non-digit after .
+    <span class=integerLiteral>1</span>_.<span class=integerLiteral>2</span>F          // invalid; no trailing _ allowed <span class=keyword>in</span> integer part
+    <span class=integerLiteral>1</span>._<span class=integerLiteral>234</span>         // parsed <span class=keyword>as</span> a member access of _<span class=integerLiteral>234</span> due to non-digit after .
+    <span class=integerLiteral>1</span>.<span class=integerLiteral>234</span>_         // invalid; no trailing _ allowed <span class=keyword>in</span> fraction
+    .<span class=integerLiteral>3</span>e_<span class=integerLiteral>5</span>F         // invalid; no leading _ allowed <span class=keyword>in</span> exponent
+    .<span class=integerLiteral>3</span>e<span class=integerLiteral>5</span>_F         // invalid; no trailing _ allowed <span class=keyword>in</span> exponent
+
+    deberia resaltarse
+    <span class=characterLiteral>'a'</span>
+    <span class=characterLiteral>'\n'</span>
+    <span class=characterLiteral>'\t'</span>
+    <span class=characterLiteral>'\b'</span>
+    <span class=characterLiteral>'\r'</span>
+    <span class=characterLiteral>'\f'</span>
+    <span class=characterLiteral>'\v'</span>
+    <span class=characterLiteral>'\<span class=integerLiteral>0</span>'</span>
+    <span class=characterLiteral>'\a'</span>
+    <span class=characterLiteral>'\x<span class=integerLiteral>0</span>'</span>
+    <span class=characterLiteral>'\x<span class=integerLiteral>01</span>'</span>
+    <span class=characterLiteral>'\x<span class=integerLiteral>012</span>'</span>
+    <span class=characterLiteral>'\xaFbD'</span>
+    <span class=characterLiteral>'\u<span class=integerLiteral>1234</span>'</span>
+    <span class=characterLiteral>'\U<span class=integerLiteral>12345678</span>'</span>
+
+
+
+    No deberia resaltarse
+
+    <span class=characterLiteral>'\'</span>
+    <span class=characterLiteral>''</span><span class=characterLiteral>'
+    '</span>
+    <span class=characterLiteral>'
+    '</span>\x<span class=integerLiteral>01</span>Bg<span class=characterLiteral>'
+    '</span>\x<span class=integerLiteral>012345</span><span class=characterLiteral>'
+    '</span>\u<span class=integerLiteral>1234</span>ee<span class=characterLiteral>'
+    '</span>\u<span class=integerLiteral>123</span>'
+
+    <span class=keyword>string</span> a = <span class=stringLiteral>"Happy birthday, Joel"</span>; // Happy birthday, Joel
+    <span class=keyword>string</span> b = @<span class=stringLiteral>"Happy birthday, Joel"</span>; // Happy birthday, Joel
+    <span class=keyword>string</span> c = <span class=stringLiteral>"hello \t world"</span>; // hello world
+    <span class=keyword>string</span> d = @<span class=stringLiteral>"hello \t world"</span>; // hello \t world
+    <span class=keyword>string</span> e = <span class=stringLiteral>"Joe said \"</span>Hello\<span class=stringLiteral>" to me"</span>; // Joe said <span class=stringLiteral>"Hello"</span> to me
+    <span class=keyword>string</span> f = @<span class=stringLiteral>"Joe said "</span><span class=stringLiteral>"Hello"</span><span class=stringLiteral>" to me"</span>; // Joe said <span class=stringLiteral>"Hello"</span> to me
+    <span class=keyword>string</span> g = <span class=stringLiteral>"\\\\server\\share\\file.txt"</span>; // \\server\share\file.txt
+    <span class=keyword>string</span> h = @<span class=stringLiteral>"\\server\share\file.txt"</span>; // \\server\share\file.txt
+    <span class=keyword>string</span> i = <span class=stringLiteral>"one\r\ntwo\r\nthree"</span>;
+    <span class=keyword>string</span> j = @<span class=stringLiteral>"one
+    two
+    three"</span>;
+
+<span class=keyword>namespace</span> CSharpTutorials
+{
+    class Program
+    {
+        <span class=keyword>static</span> <span class=keyword>void</span> Main(<span class=keyword>string</span>[] args)
+        {
+            <span class=keyword>string</span> message = <span class=stringLiteral>"Hello World!!"</span>;
+
+            Console.WriteLine(message);
+        }
+    }
+}</pre>
