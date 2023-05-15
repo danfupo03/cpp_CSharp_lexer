@@ -71,3 +71,5 @@ string Lexer::wrap(string input, string class_name)
 {
     return "<span class=" + class_name + ">" + input + "</span>";
 }
+
+
