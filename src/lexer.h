@@ -6,13 +6,10 @@
 #include "stringLiteral.h"
 #include "operators.h"
 #include "comments.h"
+#include "integerLiteral.h"
+#include "realLiteral.h"
 
 using namespace std;
-
-// string operatorSafe(string s)
-// {
-//     return "<[^/>]*>" + s + "</[^>]*>";
-// }
 
 class Lexer
 {
@@ -32,8 +29,8 @@ Lexer::Lexer()
     highlighters.push_back(new CharLiteralHighlighter());
     highlighters.push_back(new StringLiteralHighlighter());
     highlighters.push_back(new CommentsHighlighter());
-    // highlighters.push_back(new RealLiteralHighlighter());
-    // highlighters.push_back(new IntegerLiteralHighlighter());
+    highlighters.push_back(new RealLiteralHighlighter());
+    highlighters.push_back(new IntegerLiteralHighlighter());
 }
 
 string Lexer::lex(string input)

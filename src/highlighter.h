@@ -4,6 +4,10 @@
 #include <string>
 #include <regex>
 
+std::string operatorSafe(std::string s)
+{
+    return "(<[^/>]*>" + s + "</[^>]*>)";
+}
 class Highlighter
 {
 public:

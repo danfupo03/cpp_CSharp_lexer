@@ -1,10 +1,4 @@
 #include "highlighter.h"
-
-std::string operatorSafe(std::string s)
-{
-    return "<[^/>]*>" + s + "</[^>]*>";
-}
-
 class CommentsHighlighter : public Highlighter
 {
 public:
