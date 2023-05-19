@@ -1,16 +1,16 @@
-<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre><span class=keywords>using</span> System;
-<span class=keywords>using</span> System.Collections.Generic;
-<span class=keywords>using</span> System.Linq;
-<span class=keywords>using</span> System.Text;
-<span class=keywords>using</span> System.Threading.Tasks;
+<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre><span class=keywords>using</span> System<span class=operators>;</span>
+<span class=keywords>using</span> System<span class=operators>.</span>Collections<span class=operators>.</span>Generic<span class=operators>;</span>
+<span class=keywords>using</span> System<span class=operators>.</span>Linq<span class=operators>;</span>
+<span class=keywords>using</span> System<span class=operators>.</span>Text<span class=operators>;</span>
+<span class=keywords>using</span> System<span class=operators>.</span>Threading<span class=operators>.</span>Tasks<span class=operators>;</span>
 
 
-// ESTO ES UN COMENTARIO
+<span class=operators>//</span> ESTO ES UN COMENTARIO
 
-/* comentario multilinea
+<span class=operators>/*</span> comentario multilinea
     Otra <span class=keywords>for</span> mas
-    La ultima ****
-*/
+    La ultima <span class=operators>****</span>
+<span class=operators>*/</span>
 
 
     1234567890
@@ -22,7 +22,7 @@
     123Lu
     123u
     123Ul
-    123.456
+    123<span class=operators>.</span>456
 
     0x1234567890AbcDEf
     0x1_2_34
@@ -45,18 +45,18 @@
     0B_
 
 
-    1.1 2.2 3.3
-    1.234_567      // <span class=keywords>double</span>
-    .3e5f          // <span class=keywords>float</span>
-    2_345E-2_0     // <span class=keywords>double</span>
-    15D            // <span class=keywords>double</span>
-    19.73M         // <span class=keywords>decimal</span>
-    1.F            // parsed <span class=keywords>as</span> a member access of F due to non-digit after .
-    1_.2F          // invalid; no trailing _ allowed <span class=keywords>in</span> integer part
-    1._234         // parsed <span class=keywords>as</span> a member access of _234 due to non-digit after .
-    1.234_         // invalid; no trailing _ allowed <span class=keywords>in</span> fraction
-    .3e_5F         // invalid; no leading _ allowed <span class=keywords>in</span> exponent
-    .3e5_F         // invalid; no trailing _ allowed <span class=keywords>in</span> exponent
+    1<span class=operators>.</span>1 2<span class=operators>.</span>2 3<span class=operators>.</span>3
+    1<span class=operators>.</span>234_567      <span class=operators>//</span> <span class=keywords>double</span>
+    <span class=operators>.</span>3e5f          <span class=operators>//</span> <span class=keywords>float</span>
+    2_345E<span class=operators>-</span>2_0     <span class=operators>//</span> <span class=keywords>double</span>
+    15D            <span class=operators>//</span> <span class=keywords>double</span>
+    19<span class=operators>.</span>73M         <span class=operators>//</span> <span class=keywords>decimal</span>
+    1<span class=operators>.</span>F            <span class=operators>//</span> parsed <span class=keywords>as</span> a member access of F due to non<span class=operators>-</span>digit after <span class=operators>.</span>
+    1_<span class=operators>.</span>2F          <span class=operators>//</span> invalid<span class=operators>;</span> no trailing _ allowed <span class=keywords>in</span> integer part
+    1<span class=operators>.</span>_234         <span class=operators>//</span> parsed <span class=keywords>as</span> a member access of _234 due to non<span class=operators>-</span>digit after <span class=operators>.</span>
+    1<span class=operators>.</span>234_         <span class=operators>//</span> invalid<span class=operators>;</span> no trailing _ allowed <span class=keywords>in</span> fraction
+    <span class=operators>.</span>3e_5F         <span class=operators>//</span> invalid<span class=operators>;</span> no leading _ allowed <span class=keywords>in</span> exponent
+    <span class=operators>.</span>3e5_F         <span class=operators>//</span> invalid<span class=operators>;</span> no trailing _ allowed <span class=keywords>in</span> exponent
 
     deberia resaltarse
     'a'
@@ -88,28 +88,28 @@
     '\u1234ee'
     '\u123'
 
-    <span class=keywords>string</span> a = "Happy birthday, Joel"; // Happy birthday, Joel
-    <span class=keywords>string</span> b = @"Happy birthday, Joel"; // Happy birthday, Joel
-    <span class=keywords>string</span> c = "hello \t world"; // hello world
-    <span class=keywords>string</span> d = @"hello \t world"; // hello \t world
-    <span class=keywords>string</span> e = "Joe said \"Hello\" to me"; // Joe said "Hello" to me
-    <span class=keywords>string</span> f = @"Joe said ""Hello"" to me"; // Joe said "Hello" to me
-    <span class=keywords>string</span> g = "\\\\server\\share\\file.txt"; // \\server\share\file.txt
-    <span class=keywords>string</span> h = @"\\server\share\file.txt"; // \\server\share\file.txt
-    <span class=keywords>string</span> i = "one\r\ntwo\r\nthree";
-    <span class=keywords>string</span> j = @"one
+    <span class=keywords>string</span> a <span class=operators>=</span> "Happy birthday<span class=operators>,</span> Joel"<span class=operators>;</span> <span class=operators>//</span> Happy birthday<span class=operators>,</span> Joel
+    <span class=keywords>string</span> b <span class=operators>=</span> @"Happy birthday<span class=operators>,</span> Joel"<span class=operators>;</span> <span class=operators>//</span> Happy birthday<span class=operators>,</span> Joel
+    <span class=keywords>string</span> c <span class=operators>=</span> "hello \t world"<span class=operators>;</span> <span class=operators>//</span> hello world
+    <span class=keywords>string</span> d <span class=operators>=</span> @"hello \t world"<span class=operators>;</span> <span class=operators>//</span> hello \t world
+    <span class=keywords>string</span> e <span class=operators>=</span> "Joe said \"Hello\" to me"<span class=operators>;</span> <span class=operators>//</span> Joe said "Hello" to me
+    <span class=keywords>string</span> f <span class=operators>=</span> @"Joe said ""Hello"" to me"<span class=operators>;</span> <span class=operators>//</span> Joe said "Hello" to me
+    <span class=keywords>string</span> g <span class=operators>=</span> "\\\\server\\share\\file<span class=operators>.</span>txt"<span class=operators>;</span> <span class=operators>//</span> \\server\share\file<span class=operators>.</span>txt
+    <span class=keywords>string</span> h <span class=operators>=</span> @"\\server\share\file<span class=operators>.</span>txt"<span class=operators>;</span> <span class=operators>//</span> \\server\share\file<span class=operators>.</span>txt
+    <span class=keywords>string</span> i <span class=operators>=</span> "one\r\ntwo\r\nthree"<span class=operators>;</span>
+    <span class=keywords>string</span> j <span class=operators>=</span> @"one
     two
-    three";
+    three"<span class=operators>;</span>
 
 <span class=keywords>namespace</span> CSharpTutorials
-{
+<span class=operators>{</span>
     <span class=keywords>class</span> Program
-    {
-        <span class=keywords>static</span> <span class=keywords>void</span> Main(<span class=keywords>string</span>[] args)
-        {
-            <span class=keywords>string</span> message = "Hello World!!";
+    <span class=operators>{</span>
+        <span class=keywords>static</span> <span class=keywords>void</span> Main<span class=operators>(</span><span class=keywords>string</span><span class=operators>[]</span> args<span class=operators>)</span>
+        <span class=operators>{</span>
+            <span class=keywords>string</span> message <span class=operators>=</span> "Hello World<span class=operators>!!</span>"<span class=operators>;</span>
 
-            Console.WriteLine(message);
-        }
-    }
-}</pre>
+            Console<span class=operators>.</span>WriteLine<span class=operators>(</span>message<span class=operators>);</span>
+        <span class=operators>}</span>
+    <span class=operators>}</span>
+<span class=operators>}</span></pre>

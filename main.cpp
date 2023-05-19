@@ -18,12 +18,12 @@ int main()
     std::string inputString((std::istreambuf_iterator<char>(input)),
                             std::istreambuf_iterator<char>());
 
-    std::string output = highlightKeywords(inputString, keywords), output2 = highlightOperators(output, operators);
+    std::string output = highlightKeywords(highlightOperators(inputString, operators), keywords);
 
     std::ofstream output_file("output.html");
 
     output_file << "<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre>"
-                << output << output2
+                << output
                 << "</pre>";
 
     output_file.close();
