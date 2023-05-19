@@ -3,6 +3,7 @@
 #include "highlighter.h"
 #include "keywords.h"
 #include "operators.h"
+#include "comments.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ Lexer::Lexer()
 {
     highlighters.push_back(new OperatorsHighlighter());
     highlighters.push_back(new KeywordsHighlighter());
-    // highlighters.push_back(new CommentsHighlighter());
+    highlighters.push_back(new CommentsHighlighter());
     // highlighters.push_back(new CharLiteralHighlighter());
     // highlighters.push_back(new StringLiteralHighlighter());
     // highlighters.push_back(new RealLiteralHighlighter());
