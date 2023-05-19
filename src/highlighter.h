@@ -17,7 +17,7 @@ protected:
 
 std::string Highlighter::highlight(std::string input)
 {
-    return std::regex_replace(input, regexp, "<span class=\"" + className + "\">$&</span>");
+    return std::regex_replace(input, regexp, "<span class=" + className + ">$&</span>");
 }
 
 #endif // !HIGHLIGHTER_H
