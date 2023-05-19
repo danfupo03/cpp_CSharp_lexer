@@ -1,74 +1,74 @@
-#include <iostream>
-#include <regex>
-#include <map>
-#include <vector>
+#include "highlighter.h"
 
-std::vector<std::string> operators({"{",
-                                    "}",
-                                    "[",
-                                    "]",
-                                    "(",
-                                    ")",
-                                    ".",
-                                    ",",
-                                    ":",
-                                    ";",
-                                    "+",
-                                    "-",
-                                    "*",
-                                    "/",
-                                    "%",
-                                    "&",
-                                    "|",
-                                    "^",
-                                    "!",
-                                    "~",
-                                    "=",
-                                    "<",
-                                    ">",
-                                    "?",
-                                    "??",
-                                    "::",
-                                    "++",
-                                    "--",
-                                    "&&",
-                                    "||",
-                                    "->",
-                                    "==",
-                                    "!=",
-                                    "<=",
-                                    ">=",
-                                    "+=",
-                                    "-=",
-                                    "*=",
-                                    "/=",
-                                    "%=",
-                                    "&=",
-                                    "|=",
-                                    "^=",
-                                    "<<",
-                                    "<<=",
-                                    "=>"});
-
-std::regex operatorRegEx(std::vector<std::string> operators)
+class OperatorsHighlighter : public Highlighter
 {
-    std::string pattern = "(";
+public:
+    OperatorsHighlighter();
+    ~OperatorsHighlighter() = default;
+};
+
+OperatorsHighlighter::OperatorsHighlighter()
+{
+    className = "operators";
+
+    std::vector<std::string> operators({"{",
+                                        "}",
+                                        "[",
+                                        "]",
+                                        "(",
+                                        ")",
+                                        ".",
+                                        ",",
+                                        ":",
+                                        ";",
+                                        "+",
+                                        "-",
+                                        "*",
+                                        "/",
+                                        "%",
+                                        "&",
+                                        "|",
+                                        "^",
+                                        "!",
+                                        "~",
+                                        "=",
+                                        "<",
+                                        ">",
+                                        "?",
+                                        "??",
+                                        "::",
+                                        "++",
+                                        "--",
+                                        "&&",
+                                        "||",
+                                        "->",
+                                        "==",
+                                        "!=",
+                                        "<=",
+                                        ">=",
+                                        "+=",
+                                        "-=",
+                                        "*=",
+                                        "/=",
+                                        "%=",
+                                        "&=",
+                                        "|=",
+                                        "^=",
+                                        "<<",
+                                        "<<=",
+                                        "=>"});
+    std::string regexString = "(";
     for (auto it = operators.begin(); it != operators.end(); ++it)
     {
         std::regex specialChars{R"([-[\]{}()*+?.,\^$|#\s])"};
         std::string sanitized = std::regex_replace(*it, specialChars, R"(\$&)");
-        pattern += sanitized;
+        regexString += sanitized;
         if (it != operators.end() - 1)
         {
-            pattern += "|";
+            regexString += "|";
         }
     }
-    pattern += ")+";
-    return std::regex(pattern);
-};
+    regexString += ")+";
 
-std::string highlightOperators(std::string s, std::vector<std::string> operators)
-{
-    std::regex operatorRegex = operatorRegEx(operators);
-    return std::regex_replace(s, operatorRegex, "<span class=operators>$&</span>");
+    regexp = std::regex(regexString);
 }
