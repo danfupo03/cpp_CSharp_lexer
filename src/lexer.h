@@ -2,6 +2,8 @@
 #include <vector>
 #include "highlighter.h"
 #include "keywords.h"
+#include "charLiteral.h"
+#include "stringLiteral.h"
 #include "operators.h"
 #include "comments.h"
 
@@ -27,9 +29,9 @@ Lexer::Lexer()
 {
     highlighters.push_back(new OperatorsHighlighter());
     highlighters.push_back(new KeywordsHighlighter());
+    highlighters.push_back(new CharLiteralHighlighter());
+    highlighters.push_back(new StringLiteralHighlighter());
     highlighters.push_back(new CommentsHighlighter());
-    // highlighters.push_back(new CharLiteralHighlighter());
-    // highlighters.push_back(new StringLiteralHighlighter());
     // highlighters.push_back(new RealLiteralHighlighter());
     // highlighters.push_back(new IntegerLiteralHighlighter());
 }
