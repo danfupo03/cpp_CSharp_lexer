@@ -7,6 +7,10 @@ body {
   padding-left: 4rem;
 }
 
+span * {
+  color: inherit !important;
+}
+
 .charLiteral {
   color: #50b6c2;
 }

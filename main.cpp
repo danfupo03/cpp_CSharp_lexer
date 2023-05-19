@@ -15,7 +15,7 @@ int main()
 
     std::ofstream output_file("output.html");
 
-    output_file << "<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre>"
+    output_file << "<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><pre>"
                 << inputString
                 << "</pre>";
 
